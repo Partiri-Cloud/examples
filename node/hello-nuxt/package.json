@@ -1,0 +1,16 @@
+{
+  "name": "hello-nuxt",
+  "version": "1.0.0",
+  "description": "Minimal Nuxt 3 app for Partiri",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "nuxt": "^3.16.0"
+  }
+}

@@ -1,0 +1,11 @@
+:{$PORT:3000}
+
+root * /srv
+file_server
+
+@health {
+    path /health
+}
+handle @health {
+    respond `{"status":"ok"}` 200
+}

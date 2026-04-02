@@ -1,0 +1,46 @@
+name: Build Examples
+
+on:
+  workflow_dispatch:
+    inputs:
+      example:
+        description: "Example to build (e.g. node/hello-express). Leave empty to build all."
+        required: false
+        type: string
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      examples: ${{ steps.find.outputs.examples }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: find
+        run: |
+          if [ -n "${{ inputs.example }}" ]; then
+            echo "examples=[\"${{ inputs.example }}\"]" >> "$GITHUB_OUTPUT"
+          else
+            examples=$(find . -name Dockerfile -not -path './.github/*' | sed 's|/Dockerfile||;s|^\./||' | jq -R -s -c 'split("\n") | map(select(. != ""))')
+            echo "examples=$examples" >> "$GITHUB_OUTPUT"
+          fi
+
+  build:
+    needs: discover
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        example: ${{ fromJson(needs.discover.outputs.examples) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build ${{ matrix.example }}
+        run: docker build -t partiri-example-${{ matrix.example }} ${{ matrix.example }}
+
+      - name: Test ${{ matrix.example }}
+        run: |
+          docker run -d --name test -p 3000:3000 -e PORT=3000 partiri-example-${{ matrix.example }}
+          sleep 5
+          curl -f http://localhost:3000/health || (docker logs test && exit 1)
+          docker stop test

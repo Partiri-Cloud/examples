@@ -1,0 +1,28 @@
+FROM node:24-slim AS builder
+
+WORKDIR /app
+
+COPY package.json ./
+RUN npm install
+
+COPY . .
+RUN npm run build
+
+# ---
+
+FROM node:24-slim AS runner
+
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+COPY --from=builder /app/.output ./.output
+
+USER 1001
+
+EXPOSE 3000
+
+ENV PORT=3000
+ENV HOST=0.0.0.0
+
+CMD ["node", ".output/server/index.mjs"]

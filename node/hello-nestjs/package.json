@@ -1,0 +1,25 @@
+{
+  "name": "hello-nestjs",
+  "version": "1.0.0",
+  "description": "Minimal NestJS 11 app for Partiri",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "nest build",
+    "start": "node dist/main.js",
+    "start:dev": "nest start --watch"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/platform-express": "^11.0.0",
+    "reflect-metadata": "^0.2.0",
+    "rxjs": "^7.8.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0"
+  }
+}
