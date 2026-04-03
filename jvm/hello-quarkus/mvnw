@@ -1,0 +1,37 @@
+#!/bin/sh
+#
+# Maven wrapper script for Unix.
+#
+
+# Resolve the script's directory.
+PRG="$0"
+while [ -h "$PRG" ]; do
+    ls=$(ls -ld "$PRG")
+    link=$(expr "$ls" : '.*-> \(.*\)$')
+    if expr "$link" : '/.*' > /dev/null; then
+        PRG="$link"
+    else
+        PRG="$(dirname "$PRG")/$link"
+    fi
+done
+PRGDIR="$(dirname "$PRG")"
+APP_HOME="$(cd "$PRGDIR" && pwd)"
+
+MAVEN_USER_HOME="${MAVEN_USER_HOME:-$HOME/.m2}"
+WRAPPER_PROPERTIES="$APP_HOME/.mvn/wrapper/maven-wrapper.properties"
+
+# Read the distribution URL from the properties file.
+DIST_URL=$(grep "^distributionUrl=" "$WRAPPER_PROPERTIES" | sed 's/distributionUrl=//' | sed 's/\\//g')
+
+DIST_NAME=$(basename "$DIST_URL" .zip)
+DIST_DIR="$MAVEN_USER_HOME/wrapper/dists/$DIST_NAME"
+MVN_HOME="$DIST_DIR/$DIST_NAME"
+
+if [ ! -d "$MVN_HOME" ]; then
+    mkdir -p "$DIST_DIR"
+    echo "Downloading Maven from $DIST_URL..."
+    curl -fsSL -o "$DIST_DIR/$DIST_NAME.zip" "$DIST_URL"
+    unzip -q "$DIST_DIR/$DIST_NAME.zip" -d "$DIST_DIR"
+fi
+
+exec "$MVN_HOME/bin/mvn" "$@"
