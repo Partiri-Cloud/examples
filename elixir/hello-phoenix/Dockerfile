@@ -17,8 +17,8 @@ RUN useradd -u 1001 -m appuser
 USER 1001
 
 ENV MIX_ENV=prod
-ENV PORT=3000
+ENV PORT=10000
 
-EXPOSE 3000
+EXPOSE 10000
 
 CMD ["mix", "phx.server"]
