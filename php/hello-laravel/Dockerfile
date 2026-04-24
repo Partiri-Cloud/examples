@@ -19,8 +19,8 @@ RUN useradd -u 1001 -m appuser
 USER 1001
 
 ENV APP_ENV=production
-ENV PORT=3000
+ENV PORT=10000
 
-EXPOSE 3000
+EXPOSE 10000
 
 CMD php artisan serve --host=0.0.0.0 --port=${PORT}
