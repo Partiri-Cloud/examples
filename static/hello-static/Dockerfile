@@ -10,4 +10,4 @@ RUN adduser -u 1001 -D -H -s /sbin/nologin appuser \
 
 USER 1001
 
-EXPOSE 3000
+EXPOSE 10000
