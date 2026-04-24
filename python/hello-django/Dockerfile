@@ -10,7 +10,9 @@ COPY . .
 RUN adduser --uid 1001 --disabled-password --gecos '' appuser
 USER 1001
 
-ENV PORT=3000
+ENV PORT=10000
+
+EXPOSE 10000
 ENV DJANGO_SETTINGS_MODULE=mysite.settings
 
 CMD ["sh", "-c", "gunicorn mysite.wsgi --bind 0.0.0.0:$PORT"]

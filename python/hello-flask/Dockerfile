@@ -10,6 +10,8 @@ COPY . .
 RUN adduser --uid 1001 --disabled-password --gecos '' appuser
 USER 1001
 
-ENV PORT=3000
+ENV PORT=10000
+
+EXPOSE 10000
 
 CMD ["sh", "-c", "gunicorn app:app --bind 0.0.0.0:$PORT"]
