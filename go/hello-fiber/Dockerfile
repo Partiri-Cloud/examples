@@ -8,5 +8,5 @@ RUN CGO_ENABLED=0 go build -o server .
 FROM gcr.io/distroless/static-debian12
 COPY --from=builder /app/server /
 USER 1001
-EXPOSE 3000
+EXPOSE 10000
 CMD ["/server"]
