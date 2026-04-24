@@ -1,6 +1,8 @@
 # Partiri Examples
 
-A collection of minimal, deploy-ready example applications for the [Partiri](https://partiri.com) platform, organized by runtime.
+A collection of minimal, deploy-ready example applications for the [Partiri](https://partiri.cloud) platform, organized by runtime.
+
+Every example listens on `PORT` (default **10000**, matches the Partiri platform default) and exposes a `/health` endpoint.
 
 ## Examples
 
@@ -63,6 +65,8 @@ A collection of minimal, deploy-ready example applications for the [Partiri](htt
 | Example | Framework | Description |
 |---------|-----------|-------------|
 | [hello-spring](jvm/hello-spring/) | Spring Boot | Spring Boot REST API |
+| [hello-ktor](jvm/hello-ktor/) | Ktor | Kotlin Ktor HTTP server |
+| [hello-quarkus](jvm/hello-quarkus/) | Quarkus | Quarkus JAX-RS application |
 
 ### .NET
 
@@ -84,28 +88,28 @@ A collection of minimal, deploy-ready example applications for the [Partiri](htt
 
 ## How to Deploy
 
-Every example follows the same workflow:
+Each example's README includes three deployment paths:
+
+1. **Partiri Dashboard — Repository mode**: fork the repo, paste the repo URL into the service form with the example's build/run command values.
+2. **Partiri Dashboard — Registry mode**: build the example's Dockerfile, push the image to your registry (GHCR, DockerHub, etc.), and paste the image URL into the service form.
+3. **Partiri CLI**:
 
 ```bash
-# 1. Clone the repo and navigate to an example
 git clone https://github.com/partiri-cloud/examples.git
 cd examples/node/hello-express
-
-# 2. Initialize your Partiri config
 partiri init
-
-# 3. Create and deploy the service
 partiri service create
 partiri service deploy
 ```
 
 ## Prerequisites
 
-- [Partiri CLI](https://partiri.com/docs/cli) installed
-- A Partiri account with a workspace and project
+- A Partiri account with a workspace and project — sign up at [partiri.cloud](https://partiri.cloud)
+- [Partiri CLI](https://partiri.cloud/documentation/cli) installed (for the CLI path)
+- Docker (for the Registry-mode path)
 
 ## Documentation
 
-- [Partiri Documentation](https://partiri.com/docs)
-- [CLI Reference](https://partiri.com/docs/cli)
-- [Framework Guides](https://partiri.com/docs/frameworks)
+- [Partiri Documentation](https://partiri.cloud/documentation)
+- [Framework Guides](https://partiri.cloud/documentation/frameworks)
+- [CLI Reference](https://partiri.cloud/documentation/cli)
