@@ -17,6 +17,6 @@ COPY --from=builder /app/out ./
 RUN useradd -u 1001 -r -s /sbin/nologin appuser
 USER 1001
 
-EXPOSE 3000
+EXPOSE 10000
 
 ENTRYPOINT ["dotnet", "hello-aspnet.dll"]
