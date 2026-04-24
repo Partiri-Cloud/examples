@@ -20,7 +20,7 @@ async fn health() -> impl Responder {
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let port: u16 = env::var("PORT")
-        .unwrap_or_else(|_| "3000".to_string())
+        .unwrap_or_else(|_| "10000".to_string())
         .parse()
         .expect("PORT must be a valid number");
 

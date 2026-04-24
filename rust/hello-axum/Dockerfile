@@ -8,5 +8,5 @@ FROM debian:bookworm-slim
 RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /app/target/release/hello-axum /usr/local/bin/hello-axum
 USER 1001
-EXPOSE 3000
+EXPOSE 10000
 CMD ["hello-axum"]
