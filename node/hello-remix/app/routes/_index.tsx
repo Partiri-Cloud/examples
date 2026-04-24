@@ -9,7 +9,7 @@ export default function Index() {
     <main style={{ fontFamily: 'sans-serif', maxWidth: '600px', margin: '4rem auto', padding: '0 1rem' }}>
       <h1>Hello from Remix</h1>
       <p>
-        This app is running on <a href="https://partiri.com">Partiri</a>.
+        This app is running on <a href="https://partiri.cloud">Partiri</a>.
       </p>
     </main>
   );

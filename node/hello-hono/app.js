@@ -11,7 +11,7 @@ app.get('/health', (c) => {
   return c.json({ status: 'ok' });
 });
 
-const port = Number(process.env.PORT) || 3000;
+const port = Number(process.env.PORT) || 10000;
 
 serve({ fetch: app.fetch, port }, () => {
   console.log(`Server running on port ${port}`);

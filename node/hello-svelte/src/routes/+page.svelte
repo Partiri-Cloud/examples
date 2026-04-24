@@ -3,7 +3,7 @@
 
 <main>
   <h1>Hello from SvelteKit</h1>
-  <p>This app is running on <a href="https://partiri.com">Partiri</a>.</p>
+  <p>This app is running on <a href="https://partiri.cloud">Partiri</a>.</p>
 </main>
 
 <style>

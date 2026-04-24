@@ -22,9 +22,9 @@ COPY --from=builder /app/public ./public
 
 USER 1001
 
-EXPOSE 3000
+EXPOSE 10000
 
-ENV PORT=3000
+ENV PORT=10000
 ENV HOSTNAME=0.0.0.0
 
 CMD ["node", "server.js"]

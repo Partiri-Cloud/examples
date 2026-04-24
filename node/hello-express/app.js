@@ -3,7 +3,7 @@
 const express = require('express');
 
 const app = express();
-const port = parseInt(process.env.PORT ?? '3000', 10);
+const port = parseInt(process.env.PORT ?? '10000', 10);
 
 app.get('/', (_req, res) => {
   res.send('Hello from Express on Partiri!');

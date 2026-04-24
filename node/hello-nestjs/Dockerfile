@@ -23,6 +23,8 @@ COPY --from=builder /app/dist ./dist
 
 USER 1001
 
-EXPOSE 3000
+ENV PORT=10000
+
+EXPOSE 10000
 
 CMD ["node", "dist/main.js"]

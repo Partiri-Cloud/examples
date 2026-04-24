@@ -29,8 +29,9 @@ RUN groupadd --gid 1001 appgroup && \
 USER 1001
 
 ENV NODE_ENV=production
-ENV PORT=3000
+ENV PORT=10000
+ENV HOST=0.0.0.0
 
-EXPOSE 3000
+EXPOSE 10000
 
 CMD ["node", "dist/server/entry.mjs"]

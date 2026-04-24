@@ -10,6 +10,6 @@ COPY app.js ./
 
 USER 1001
 
-EXPOSE 3000
+EXPOSE 10000
 
 CMD ["node", "app.js"]

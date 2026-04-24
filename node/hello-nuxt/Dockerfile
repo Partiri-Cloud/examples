@@ -20,9 +20,9 @@ COPY --from=builder /app/.output ./.output
 
 USER 1001
 
-EXPOSE 3000
+EXPOSE 10000
 
-ENV PORT=3000
+ENV PORT=10000
 ENV HOST=0.0.0.0
 
 CMD ["node", ".output/server/index.mjs"]
