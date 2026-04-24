@@ -19,6 +19,6 @@ COPY --from=builder /app/target/quarkus-app/ ./
 RUN useradd -u 1001 -r -s /sbin/nologin appuser
 USER 1001
 
-EXPOSE 3000
+EXPOSE 10000
 
 ENTRYPOINT ["java", "-jar", "quarkus-run.jar"]

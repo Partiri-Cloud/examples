@@ -18,6 +18,6 @@ COPY --from=builder /app/build/libs/hello-ktor-0.0.1-all.jar app.jar
 RUN useradd -u 1001 -r -s /sbin/nologin appuser
 USER 1001
 
-EXPOSE 3000
+EXPOSE 10000
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
